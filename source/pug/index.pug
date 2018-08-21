@@ -14,8 +14,28 @@ html(lang='en')
                 .content__header
                     .top__header
                         .top__header-title Выберите друзей
+                        img.top__header-close(src='images/close_white.png' alt='close')
                     .bottom__header
+                        .left-search
+                            input.left-search__vk(placeholder='Начните вводить имя друга', type='search')
+                        .right-search
+                            input.right-search__my(placeholder='Название', type='search')
                 .content__main
                     .left__main
+                        .left__main-title Ваши друзья
+                        list.friends__vk
+                            item.friend__item
+                                .friend
+                                    img.friend__photo(src='images/photo-user.png' alt='photo')
+                                    .friend__name Иришка Кочерыжка
+                                img.close-button(src='images/close_grey.png' alt='add')
                     .right__main
+                        .right__main-title Ваши друзья в списке
+                        list.friends__list
+                            item.friend__item
+                                .friend
+                                    img.friend__photo(src='images/photo-user.png' alt='photo')
+                                    .friend__name Иришка Кочерыжка
+                                img.add-button(src='images/add.png' alt='add')
                 .content__footer
+                    .save-button Сохранить

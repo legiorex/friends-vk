@@ -1,3 +1,12 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-family: Trebuchet MS;
+  color: #4f4f4f;
+}
+
+
 .container{
   background: #999999;
   display: flex;
@@ -17,6 +26,7 @@
   width: 620px;
   height: 490px;
   background-color: #f0f0f0;
+  border-radius: 10px;
 }
 .content__header{
   display: flex;
@@ -24,22 +34,117 @@
   height: 90px;
 }
 .top__header{
-  //height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #ff8663;
-  padding: 15px;
+  padding: 0 15px 0 15px;
+  height: 50%;
+  border-radius: 10px 10px 0 0;
 
   &-title{
     color: #fff;
     font-size: 16px;
-    font-family: Trebuchet MS;
+  }
 
+  &-close{
+    width: 14px;
+    height: 14px;
   }
 }
 .bottom__header{
-  //height: 50%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
 }
+.left-search,.right-search{
+  padding: 0 15px 0 15px;
+  width: 100%;
+}
+.left-search__vk,.right-search__my{
+  width: 100%;
+  border-style: none;
+  border-radius: 15px;
+  box-sizing:border-box;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 15px;
+
+  &::placeholder{
+    font-size: 12px;
+  }
+}
+
 .content__main{
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 355px;
   background: #fff;
+}
+.left__main,.right__main{
+  width: 50%;
+  padding: 15px 0 0 15px;
+}
+.left__main{
+  border-right: 1px solid #f0f0f0;
+}
+.left__main-title,.right__main-title{
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+.friends__vk,.friends__list{
+  display: flex;
+  flex-direction: column;
+  padding-right: 15px;
+}
+.friend__item{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 59px;
+  font-weight: bold;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0 7px 0 7px;
+
+  &:hover{
+    background-color: #f0f0f0;
+    padding: 0 7px 0 7px;
+  }
+}
+.friend{
+  display: inline-flex;
+  align-items: center;
+
+  &__photo{
+    width: 45px;
+    height: 45px;
+    border-radius: 50px;
+    margin-right: 7px;
+  }
+  &__name{
+    font-size: 12px;
+  }
+}
+.add-button,.close-button{
+  width: 14px;
+  height: 14px;
+}
+
+.content__footer{
+  display: inline-flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.save-button{
+  margin: 7px;
+  text-align: center;
+  width: 87px;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ff8663;
+  color: #fff;
+  border-radius: 9px;
 }
