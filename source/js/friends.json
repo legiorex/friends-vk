@@ -9,7 +9,27 @@
     {
       "first_name": "Иришка",
       "last_name": "Кочерыжка",
-      "photo": "../images/photo-user.png"
+      "photo": "../images/photo-user1.png"
+    },
+    {
+      "first_name": "Иришка",
+      "last_name": "Кочерыжка",
+      "photo": "../images/photo-user2.png"
+    },
+    {
+      "first_name": "Иришка",
+      "last_name": "Кочерыжка",
+      "photo": "../images/photo-user3.png"
+    },
+    {
+      "first_name": "Иришка",
+      "last_name": "Кочерыжка",
+      "photo": "../images/photo-user4.png"
+    },
+    {
+      "first_name": "Иришка",
+      "last_name": "Кочерыжка",
+      "photo": "../images/photo-user5.png"
     }
   ]
 }

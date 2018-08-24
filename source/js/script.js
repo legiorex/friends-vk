@@ -24,33 +24,55 @@ xhr.send();
     })
 
     .then(friends => {
-         // console.log(friends);
+         // console.log(friends.items[0]);
     const template = document.querySelector('#user-template').textContent;
     // console.log(template); работает
 
     const render = Handlebars.compile(template);
-         console.log(render);
-
     const html = render(friends);
-
-    console.log(html);
     const result = document.querySelector('.friends__vk');
     result.innerHTML = html;
 
-     });
+     })
+// function addFriend() {
+//     console.log('test');
+//     const addButton = document.querySelector('.add-button');
+//     addButton.addEventListener('click', () => {
+//         console.log('test');
+//     });
+// }
+     .then(button => {
+        const a = document.querySelector('.friends__vk');
+         for (let item of a.children){
+             console.log(item.className);
 
-function main(friends) {
-    const template = document.querySelector('#user-template').textContent;
+             // const addButton = getElementsByClassName(item.className).querySelector('.add-button');
+             // addButton.addEventListener('click', () => {
+             //     console.log('test');
+             // })
 
-    const render = Handlebars.compile(template);
-
-    const html = render(friends.items);
-    console.log(friends.items);
-    console.log(html);
-    const result = document.querySelector('.friends__vk');
-    result.innerHTML = html;
-
-}
+         }
+});
 
 
 
+     // for (let item of friends.items){
+     //
+     //        console.log(item);
+     //    }
+
+    // });
+
+// function test(where) {
+//          const a = where;
+//     for (let item of a.childNodes){
+//         console.log(item);
+//         const addButton = document.querySelector('.add-button');
+//         addButton.addEventListener('click', () => {
+//             console.log('test');
+//         });
+//
+//     }
+// }
+//
+// test(document.querySelector('.friends__vk'));

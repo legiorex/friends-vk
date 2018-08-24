@@ -37,7 +37,7 @@ html(lang='en')
                                 .friend
                                     img.friend__photo(src='images/photo-user.png' alt='photo')
                                     .friend__name Иришка Кочерыжка
-                                img.add-button(src='images/add.png' alt='add')
+                                img.close-button(src='images/add.png' alt='add')
                 .content__footer
                     .save-button Сохранить
         script#user-template(type='text/x-handlebars-template').
@@ -45,7 +45,7 @@ html(lang='en')
             <item class="friend__item">
             <div class="friend"><img class="friend__photo" src={{photo}} alt="photo">
             <div class="friend__name">{{first_name}} {{last_name}}</div>
-            </div><img class="close-button" src="images/close_grey.png" alt="add">
+            </div><img class="add-button" src="images/add.png" alt="add">
             </item>
             {{/each}}
         script(src="js/script.js")
