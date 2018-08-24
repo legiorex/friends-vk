@@ -6,6 +6,7 @@ html(lang='en')
         meta(name='viewport' content='width=device-width')
         link(rel="stylesheet" href="css/main.min.css")
         title Vk friends
+        script(src= "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js")
     body
         .container
             .logo
@@ -24,11 +25,11 @@ html(lang='en')
                     .left__main
                         .left__main-title Ваши друзья
                         list.friends__vk
-                            item.friend__item
-                                .friend
-                                    img.friend__photo(src='images/photo-user.png' alt='photo')
-                                    .friend__name Иришка Кочерыжка
-                                img.close-button(src='images/close_grey.png' alt='add')
+                            //item.friend__item
+                            //    .friend
+                            //        img.friend__photo(src='images/photo-user.png' alt='photo')
+                            //        .friend__name Иришка Кочерыжка
+                            //    img.close-button(src='images/close_grey.png' alt='add')
                     .right__main
                         .right__main-title Ваши друзья в списке
                         list.friends__list
@@ -39,3 +40,12 @@ html(lang='en')
                                 img.add-button(src='images/add.png' alt='add')
                 .content__footer
                     .save-button Сохранить
+        script#user-template(type='text/x-handlebars-template').
+            {{#each items}}
+            <item class="friend__item">
+            <div class="friend"><img class="friend__photo" src={{photo}} alt="photo">
+            <div class="friend__name">{{first_name}} {{last_name}}</div>
+            </div><img class="close-button" src="images/close_grey.png" alt="add">
+            </item>
+            {{/each}}
+        script(src="js/script.js")
