@@ -1,6 +1,13 @@
 function isMatching(full, chunk) {
     return full.toUpperCase().indexOf(chunk.toUpperCase()) > -1;
 }
+function getCookies() {
+    return document.cookie.split('; ').reduce((prev, current) => {
+        const [name, value] = current.split('=');
+        prev[name] = value;
+        return prev;
+    }, {});
+}
 const rightList = document.querySelector('.friends__list');
 let r = '';
 console.log(r);
@@ -72,24 +79,30 @@ const filterAdd = document.querySelector('.right-search__my');
 
 filterAdd.addEventListener('keyup', function(e){
     // let listFriendRight = rightList;
-
-    // rightList.querySelector('.friend__name');
-    // for (let friend of rightList.children){
-    //     let f;
-    //     let newList;
-    //     if(value && (!filterAdd.value)
-    //         || isMatching(value, filterAdd.value)) {
-    //
-    //         // rightList.appendChild(friend);
-    //         f = rightList.appendChild(friend);
-    //     }
-    //
-    //     newList = f;
-    // }
-    // rightList.innerHTML = null;
+    const cookies = getCookies();
+    for (let key in cookies) {
+        if (cookies.hasOwnProperty(key) && (!filterAdd.value)
+            || isMatching(key, filterAdd.value)
+            || isMatching(cookies[key], filterAdd.value))) {
 
 
 
+            let trCookie = document.createElement('tr'); // создаем строку для кук
+
+            trCookie.innerHTML = `<td>${key}</td><td>${cookies[key]}</td><td><button>Удалить</button></td>`;
+            listTable.appendChild(trCookie); // добаляем новую строку в таблицу
+
+            // Кнопка удалить
+            trCookie.querySelector('button').addEventListener('click', () => { // навешиваю обработчик событий на click
+
+                trCookie.remove(); // удаляю записанные куки из таблицы
+
+                document.cookie = `${key} = ${cookies[key]} =; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+
+
+            });
+        }
+    }
 });
 
      // Создаю кнопки добавить и удалить
@@ -105,8 +118,8 @@ function addButton(result) {
 
             // Запись в куки
             let findText = e.target.parentNode.querySelector('.friend__name').innerText.trim();
-            let temp = findText.split(' ');
-            document.cookie = `${temp[0]} = ${temp[1]}`;
+            let [first_name, last_name] = findText.split(' ');
+            document.cookie = `${first_name} = ${last_name}`;
 
             // Удаляю друзей из json
             let result = [];
@@ -126,12 +139,12 @@ function addButton(result) {
             item.querySelector('.close-button').classList.add('hiden-button');
 
             // добавляю друзей в json
-            let findText = e.target.parentNode.querySelector('.friend__name').innerText.trim();
-            let temp = findText.split(' ');
+
+            let [first_name, last_name] = findText.split(' ');
             let findPhoto = e.target.parentNode.querySelector('.friend__photo').getAttribute('src');
             let items = {};
-            items.first_name = temp[0];
-            items.last_name = temp[1];
+            items.first_name = first_name;
+            items.last_name = last_name;
             items.photo = findPhoto;
             friends.items.push(items);
 
