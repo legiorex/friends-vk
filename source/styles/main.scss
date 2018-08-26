@@ -134,7 +134,9 @@ body{
   width: 14px;
   height: 14px;
 }
-
+.hiden-button{
+  display: none;
+}
 .content__footer{
   display: inline-flex;
   justify-content: flex-end;

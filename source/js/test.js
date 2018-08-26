@@ -1,9 +1,7 @@
-let a;
-a = function () {
-    x = 5 + 1;
-    return x;
+// function isMatching(full, chunk) {
+//     return full.toUpperCase().indexOf(chunk.toUpperCase()) > -1;
+// }
 
-};
-// console.log(x);
-let b = a();
-console.log(b);
+if(1 && (!0)) {
+    console.log('true')
+}
