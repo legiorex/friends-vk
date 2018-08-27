@@ -83,7 +83,7 @@ filterAdd.addEventListener('keyup', function(e){
     for (let key in cookies) {
         if (cookies.hasOwnProperty(key) && (!filterAdd.value)
             || isMatching(key, filterAdd.value)
-            || isMatching(cookies[key], filterAdd.value))) {
+            || isMatching(cookies[key], filterAdd.value)) {
 
 
 
