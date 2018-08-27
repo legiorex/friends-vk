@@ -1,20 +1,14 @@
 function isMatching(full, chunk) {
     return full.toUpperCase().indexOf(chunk.toUpperCase()) > -1;
 }
-// function getCookies() {
-//     return document.cookie.split('; ').reduce((prev, current) => {
-//         const [name, value] = current.split('=');
-//         prev[name] = value;
-//         return prev;
-//     }, {});
-// }
+
 let storage = localStorage;
 let saveFriends = {};
 saveFriends.items = [];
 function newObj(e) {
     let user = e.target.parentNode.querySelector('.friend__name');
     let userValue = user.textContent;
-
+    let userId = user.dataset.userId;
     let [first_name, last_name] = userValue.split(' ');
     let findPhoto = e.target.parentNode.querySelector('.friend__photo').getAttribute('src');
 
@@ -22,6 +16,7 @@ function newObj(e) {
     items.first_name = first_name;
     items.last_name = last_name;
     items.photo_100 = findPhoto;
+    items.id = userId;
     saveFriends.items.push(items);
     return saveFriends;
 }
@@ -130,7 +125,7 @@ function addButton(result, friends) {
 
             // Запись в локал сторадж
             storage.data = JSON.stringify(newObj(e));
-            console.log(storage.data);
+            // console.log(storage.data);
 
             // Удаляю друзей из json
             let user = e.target.parentNode.querySelector('.friend__name');
@@ -146,14 +141,47 @@ function addButton(result, friends) {
 
         // Кнопка удалить
         closeButton.addEventListener('click', (e) => {
+            let user = e.target.parentNode.querySelector('.friend__name');
+
             result.appendChild(item);
             item.querySelector('.add-button').classList.remove('hiden-button');
             item.querySelector('.close-button').classList.add('hiden-button');
 
+            // Удаляю из стородж
+            let delStorage = JSON.parse(storage.data || {});
+            console.log(delStorage.items);
+            let temp = {};
+            temp.items = [];
+            for (let key of delStorage.items){
+
+                console.log(key.id + '/////////////');
+                console.log(user.dataset.userId + '------------');
+                if(key.id !== user.dataset.userId){
+                    temp.items.push(key);
+                }
+                storage.data = JSON.stringify(temp);
+            }
+
+
+
+
+            // const filterDel = {};
+
+
+
+            // filterDel.items = delStorage.items.filter(function (value) {
+            //     value = value.id;
+            //     console.log(value);
+            //     if(value && !user.dataset.userId) {
+            //         return true
+            //     }
             //
+            // });
+            // storage.data = JSON.stringify(filterDel);
+
 
             // добавляю друзей в json
-            let user = e.target.parentNode.querySelector('.friend__name');
+            // let user = e.target.parentNode.querySelector('.friend__name');
             let userValue = user.textContent;
             let [first_name, last_name] = userValue.split(' ');
             let findPhoto = e.target.parentNode.querySelector('.friend__photo').getAttribute('src');
