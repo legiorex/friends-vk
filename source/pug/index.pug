@@ -44,8 +44,8 @@ html(lang='en')
         script#user-template(type='text/x-handlebars-template').
             {{#each items}}
             <item class="friend__item">
-            <div class="friend"><img class="friend__photo" src={{photo}} alt="photo">
-            <div class="friend__name">{{first_name}} {{last_name}}</div>
+            <div class="friend"><img class="friend__photo" src="{{photo_100}}" alt="photo">
+            <div class="friend__name" data-user-id = "{{id}}">{{first_name}} {{last_name}}</div>
             </div><img class="add-button" src="images/add.png" alt="add">
             </div><img class="close-button hiden-button" src="images/close_grey.png" alt="add">
             </item>
