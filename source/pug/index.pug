@@ -43,7 +43,7 @@ html(lang='en')
                     .save-button Сохранить
         script#user-template(type='text/x-handlebars-template').
             {{#each items}}
-            <item class="friend__item">
+            <item class="friend__item" data-user-id = "{{id}}">
             <div class="friend"><img class="friend__photo" src="{{photo_100}}" alt="photo">
             <div class="friend__name" data-user-id = "{{id}}">{{first_name}} {{last_name}}</div>
             </div><img class="add-button" src="images/add.png" alt="add">
